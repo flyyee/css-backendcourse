@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function submit() {
+            let name = document.getElementById("name").value
+            if (!name) {
+                alert("Please fill in the name of the student to remove")
+            } else {
+                fetch(`http://localhost:3000/api/remove?name=${name}`)
+                alert("Successfully removed")
+            }
+        }
+    </script>
+    <head>
+        <title>Attendance</title>
+    </head>
+    <body>
+        Name: <input type="text" id="name"><br>
+        <button onclick=submit()>Remove</button><br>
+        <a href="/">Go back</a>
+    </body>
+</html>

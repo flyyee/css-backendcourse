@@ -43,7 +43,11 @@ let myObj = {} // all objects are defined with the curly braces
 myObj = {
     color: "red", // the name on the left is the property name, while the value is on the right
     favNumber: 1, // be sure to use colon : to assign values instead of equals
-    days: 42
+    days: 42,
+    anotherObj: {
+        color: "blue"
+    },
+    list: [1, 3]
 }
 console.log(myObj)
 console.log(myObj["color"])
