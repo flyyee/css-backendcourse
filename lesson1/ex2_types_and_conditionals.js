@@ -16,6 +16,7 @@ console.log(noneType) // NaN - not a number
 noneType = true
 
 // Conditionals and typing
+// indentation!!
 if (noneType) { // evalutes to if true, so the body is run
     console.log("noneType evaluates to true")
 } else {
