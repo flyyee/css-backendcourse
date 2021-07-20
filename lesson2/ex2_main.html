@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function submit() {
+            let name = document.getElementById("name").value
+            let regNum = String(document.getElementById("regNum").value)
+            if (!name || !regNum) {
+                alert("Please fill in your details")
+            } else {
+                fetch(`http://localhost:3000/api/add?name=${name}&regNum=${regNum}`)
+                alert("Successfully logged you in!")
+            }
+        }
+    </script>
+    <head>
+        <title>Attendance</title>
+    </head>
+    <body>
+        <form action="/api/add" method="POST">
+            Name: <input type="text" name="name" id="name"><br>
+            Register number: <input type="number" name="regNum" id="regNum">
+            <input type="submit" value="Submit">
+        </form>
+        <a href="/attendance">Check attendance</a><br><a href="/remove">Remove</a>
+    </body>
+</html>

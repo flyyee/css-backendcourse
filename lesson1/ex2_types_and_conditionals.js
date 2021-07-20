@@ -35,6 +35,7 @@ if (noneType) { // null is a falsey type, not a truthy type
 const constNumber = 2
 // constNumber = 3 // throws an error if uncommented
 
+// > < >= <=
 let number1 = 5
 if (number1 >= 7) {
     console.log("more than or equal to 7")
@@ -44,7 +45,7 @@ if (number1 >= 7) {
 } else if (number1 == "5") { // loose equality
     // the second argument is converted to the first argument's type
     var number2 = 6
-    var number3 = 7 // try commenting out this line and uncommenting the next
+    var number3 = 7
     // let number3 = 7
     console.log("number1 is a 5")
 }

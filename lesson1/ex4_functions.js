@@ -1,6 +1,8 @@
 // Functions
 function SayHi() {
     console.log("Hello!!")
+    console.log("hi")
+    console.log("bye")
 }
 SayHi()
 
@@ -66,6 +68,7 @@ function Machine(x, operationFunction) {
 mySquareFunction = x => {
     return x**2
 }
+
 Machine(3, mySquareFunction) // mySquareFunction is passed as a callback function to the Machine function
 // in the sense that the Machine function calls mySquareFunction back once it is done with its calculations 
 // callback functions are often used when dealing with other libraries

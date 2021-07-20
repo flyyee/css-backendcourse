@@ -18,7 +18,7 @@ clog(myArray)
 
 myArray = ["a", "b", "c"]
 for (let x = 0; x < myArray.length; x++) { // this is a common pattern you will see
-    console.log(myArray[x])
+    console.log(myArray[0])
 }
 // this is a cleaner way to do it
 for (let element of myArray) { // element can be any variable name
