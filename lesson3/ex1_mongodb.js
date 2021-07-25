@@ -5,12 +5,11 @@ async function main() {
     // Documentation: https://mongodb.github.io/node-mongodb-native/4.0/
     
     // TODO: Replace the uri string with your MongoDB deployment's connection string.
-    const uri =
-        "";
+    const uri = "";
     const client = new MongoClient(uri);
     await client.connect()
 
-    // TODO: create a database called attendance
+    // TODO: create a database called yourname_attendance
     const database = client.db('gerrard_attendance')
 
     // TODO: create a collection called students
