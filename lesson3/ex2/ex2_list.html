@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <title>Attendance</title>
+    </head>
+    <body>
+        Attendance:
+        <div id="attendance"></div>
+        <a href="/">Go back</a>
+    </body>
+    <script>
+        function load() {
+            fetch(`http://localhost:3000/api/attendance`)
+            .then(res => res.json())
+            .then(data => {
+                $("#attendance").html(JSON.stringify(data))
+            })
+        }
+        setInterval(load, 1000)
+    </script>
+</html>

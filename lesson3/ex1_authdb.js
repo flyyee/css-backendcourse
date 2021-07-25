@@ -1,16 +1,17 @@
+const { MongoClient } = require("mongodb");
+
 async function main() {
     // Read https://docs.mongodb.com/drivers/node/current/quick-start/ to setup
     // Documentation: https://mongodb.github.io/node-mongodb-native/4.0/
-
-    const { MongoClient } = require("mongodb");
+    
     // TODO: Replace the uri string with your MongoDB deployment's connection string.
     const uri =
-        "mongodb+srv://tom:1234@mongodb+...?retryWrites=true&writeConcern=majority";
+        "";
     const client = new MongoClient(uri);
     await client.connect()
 
     // TODO: create a database called attendance
-    const database = client.db('attendance')
+    const database = client.db('gerrard_attendance')
 
     // TODO: create a collection called students
     const students = database.collection('students')
@@ -41,11 +42,13 @@ async function main() {
     // Documentation 2: https://mongodb.github.io/node-mongodb-native/4.0/classes/collection.html#findone
     // Usage example: https://docs.mongodb.com/drivers/node/usage-examples/findOne/
     // TODO: find (obtain data for) the student with the age 17
-    let query = { age: "what age am i" }
+    let query = { age: 17 }
     let student = await students.findOne(query) // Recap: Lesson 1 Example 7
     console.log(student)
 
     // TODO: obtain data for the student with the name Jan
+    query = { name: "Jan" }
+    student = await students.findOne(query) // Recap: Lesson 1 Example 7
     console.log(student)
 
     // You can check out https://docs.mongodb.com/drivers/node/current/usage-examples/ to learn more too.

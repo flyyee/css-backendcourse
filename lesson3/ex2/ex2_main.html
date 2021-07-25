@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<script>
+    function submit() {
+        let name = document.getElementById("name").value
+        let regNum = String(document.getElementById("regNum").value)
+        if (!name || !regNum) {
+            alert("Please fill in your details")
+        } else {
+            fetch(`http://localhost:3000/api/add`, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    regNum: regNum
+                })
+            })
+            alert("Successfully logged you in!")
+        }
+    }
+</script>
+
+<head>
+    <title>Attendance</title>
+</head>
+
+<body>
+    Name: <input type="text" id="name"><br>
+    Register number: <input type="number" id="regNum">
+    <button onclick=submit()>Submit</button><br>
+    <a href="/attendance">Check attendance</a><br><a href="/remove">Remove</a>
+</body>
+
+</html>
