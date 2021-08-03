@@ -1,44 +1,35 @@
 <!DOCTYPE html>
 <html>
 <script>
-    const MYURL = "https://salty-beyond-50937.herokuapp.com"
     function submit() {
+        let name = document.getElementById("name").value
         let username = document.getElementById("username").value
         let password = document.getElementById("password").value
-        if (!username || !password) {
+        let accountType = $('#accountType').val()
+        if (!name || !username || !password) {
             alert("Please fill in your details")
         } else {
-            fetch(`${MYURL}/api/login`, {
+            fetch(`http://localhost:3000/api/createaccount`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
+                    name: name,
                     username: username,
                     password: password,
+                    accountType: accountType
                 })
             })
-                .then(res => res.json())
                 .then(res => {
-                    if (res.token != null) {
-                        alert("Successfully logged in!")
-                        console.log(res)
-                        window.localStorage.setItem("token", res.token)
-                        window.localStorage.setItem("name", res.name)
-                        window.localStorage.setItem("accountType", res.accountType)
-                    } else {
-                        alert("Login failed")
-                    }
+                    // console.log(res.status)
+                    alert("Successfully created your account!")
+                    window.localStorage.setItem("name", name)
+                    window.localStorage.setItem("username", username)
+                    window.localStorage.setItem("password", password)
+                    window.localStorage.setItem("accountType", accountType)
                 })
         }
-    }
-
-    function logout() {
-        window.localStorage.removeItem("token")
-        window.localStorage.removeItem("name")
-        window.localStorage.removeItem("accountType")
-        window.localStorage.removeItem("username")
-        window.localStorage.removeItem("password")
     }
 </script>
 
@@ -48,12 +39,15 @@
 </head>
 
 <body>
-    <a href="/" onclick=logout()>Logout</a><br>
-    Login:<br>
+    Create account:<br>
+    Name: <input type="text" id="name"><br>
     Username: <input type="Username" id="username"><br>
     Password: <input type="password" id="password"><br>
-    <button onclick=submit()>Login</button><br>
-    <a href="/">Go back</a><br>
+    Account type: <select id="accountType">
+        <option>student</option>
+        <option>teacher</option>
+    </select><br>
+    <button onclick=submit()>Create</button><br>
     <a href="/attendance">Attendance</a><br>
 </body>
 <style>

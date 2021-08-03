@@ -24,7 +24,6 @@
     }
 </style>
 <script>
-    const MYURL = "https://salty-beyond-50937.herokuapp.com"
     function start() {
         if (window.localStorage.getItem("accountType") == "teacher") {
             $("#action").html(`Name: <input type="text" id="removeName"></input><button onclick=remove()>Remove from the attendance</button><br>`)
@@ -37,7 +36,7 @@
         let username = window.localStorage.getItem("username")
         let password = window.localStorage.getItem("password")
         let token = window.localStorage.getItem("token")
-        fetch(`${MYURL}/api/attendance?username=${username}&password=${password}&token=${token}`)
+        fetch(`http://localhost:3000/api/attendance?username=${username}&password=${password}&token=${token}`)
             .then(res => res.json())
             .then(data => {
                 $("#attendance").html(JSON.stringify(data))
@@ -50,7 +49,7 @@
     function add() {
         let name = window.localStorage.getItem("name")
         let token = window.localStorage.getItem("token")
-        fetch(`${MYURL}/api/add`, {
+        fetch(`http://localhost:3000/api/add`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -68,7 +67,7 @@
     function remove() {
         let removeName = $("#removeName").val()
         let token = window.localStorage.getItem("token")
-        fetch(`${MYURL}/api/remove`, {
+        fetch(`http://localhost:3000/api/remove`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

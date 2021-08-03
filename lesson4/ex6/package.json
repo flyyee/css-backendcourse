@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ex5_solution.js"
+    "start": "node ex5_profile.js"
   },
   "repository": {
     "type": "git",
