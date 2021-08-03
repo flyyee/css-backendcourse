@@ -1,0 +1,24 @@
+{
+  "name": "server-course",
+  "version": "1.0.0",
+  "description": "If you have Git installed, navigate to the folder you intend to download the examples into.\r Enter the following commands.\r ```\r git init\r git remote add origin https://github.com/flyyee/css-backendcourse.git\r git pull origin master\r ```\r Alternatively, you can manually copy the files over from the Github repo.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flyyee/css-backendcourse.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flyyee/css-backendcourse/issues"
+  },
+  "homepage": "https://github.com/flyyee/css-backendcourse#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.0.1"
+  }
+}
