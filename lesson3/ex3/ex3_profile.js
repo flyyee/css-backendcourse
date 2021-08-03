@@ -10,16 +10,6 @@ app.use(express.json({ extended: true })) // allows you to parse POST request da
 // TODO: connect to your MongoDB client here
 // define your database and ACCOUNTS and ATTENDANCE collection variables
 // Hint: Example 1
-const uri = "";
-const client = new MongoClient(uri);
-await client.connect()
-
-// TODO: create a database called yourname_attendance
-const database = client.db('gerrard_attendance')
-
-// TODO: create a collection called students
-const accounts = database.collection('accounts')
-const attendance = database.collection('attendance')
 
 app.get("/", (req, res) => {
     let options = {
@@ -48,19 +38,8 @@ app.post("/api/createaccount", (req, res) => {
 app.post("/api/add", (req, res) => {
     // TODO: get the name, username and password values from this POST request
     // Hint: Lesson 2 Example 2
-    let query = {
-        username: req.body.username,
-        password: req.body.password
-    }
-    let student = await students.findOne(query) // Recap: Lesson 1 Example 7
-    console.log(student)
     // TODO: verify that the username and password corresponds to an existing user
     // Hint: Example 1/2
-    if (student != undefined) {
-        // insert 
-    } else {
-        // nth
-    }
     // TODO: create a student document (similar to creating an object last lesson)
     // and insert the student into the ATTENDANCE database
     // Hint: What details of the student (name/username/password) do you include in the attendance list?
@@ -72,14 +51,7 @@ app.get("/api/attendance", (req, res) => {
     // https://docs.mongodb.com/manual/tutorial/query-documents/#select-all-documents-in-a-collection
     // Be sure to select Node.JS as the language (top right) for the above link
     // Cursors: http://mongodb.github.io/node-mongodb-native/2.2/api/Collection.html#find
-    const cursor = attendance.find({});
-    let students = cursor
-    attendance.find().toArray(function(err, documents) {
-        
-        test.equal(3, documents.length);
-  
-        db.close();
-      });
+    let students = []
     res.json({ // res.json sends a JSON response.
         // \JSON stands for Javascript Object Notation. These are the objects we learnt earlier in example 5.
         // they are enclosed in curly braces as shown

@@ -5,7 +5,7 @@ const express = require('express')
 const app = express() // creates an instance of an express app
 const port = 3000 // defines the port that your backend is exposed on. Don't change this
 
-app.use(express.json({ extended: true })) // allows you to parse POST request data in JSON format
+app.use(express.json({extended: true})) // allows you to parse POST request data in JSON format
 
 // TODO: connect to your MongoDB client here
 // define your student database and collection variables
@@ -35,19 +35,13 @@ app.get("/remove", (req, res) => { // this file is served instead when users vis
     res.sendFile("ex2_remove.html", options)
 })
 
-app.post("/api/add", async (req, res) => {
+app.post("/api/add", (req, res) => {
     // TODO: get the name and regNum values from this POST request
     console.log(req.body)
     // Hint: Lesson 2 Example 2
     // TODO: do something with this info
     // create a student document (similar to creating an object last lesson)
     // and insert the student into the database
-    let studentDocument = {
-        // this is a document (or object)
-        name: req.body.name,
-        regNum: req.body.regNum
-    }
-    await students.insertOne(studentDocument)
     // Hint: If you use await, you have to make the callback function an async function
     // Hint: You can do this by specifying async(req, res)
     res.send("success")
@@ -72,6 +66,6 @@ app.get("/api/attendance", (req, res) => {
 // What if the student is not currently in your list of students?
 
 app.listen(port, () => {
-    console.log(`Your app is listening at http://localhost:${port}`) // Exposes your backend on the port 3000
+  console.log(`Your app is listening at http://localhost:${port}`) // Exposes your backend on the port 3000
 }) // Typically, the backend would be exposed across the Internet
 // But for simplicity, we'll run it locally first (only WE can check it out)
