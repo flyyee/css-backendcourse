@@ -66,6 +66,15 @@ app.post("/api/remove", (req, res) => {
     // TODO: verify that the username and password corresponds to an existing user
     // Remember to first convert the plaintext password in the request to its hashed version
     // Extension: check that the existing user is a teacher (not a student)
+    let query = {
+        username: req.body.username,
+        password: req.body.password,
+        accountType: "teacher"
+    }
+    let teacher = await accounts.findOne(query)
+    if (teacher != undefined) {
+        // your code dealing with the teacher
+    }
     // Hint: Example 1/2
     // TODO: remove the student document (similar to creating an object last lesson) with the specified removeName
     // Hint: https://docs.mongodb.com/drivers/node/usage-examples/deleteOne/
